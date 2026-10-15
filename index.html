@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffcc00">
+  <title>MoMo Advance | Loan Application</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">M</span><span>MoMo <b>Advance</b></span></div>
+    <span class="secure"><span class="dot"></span> Secure application</span>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div class="eyebrow">PERSONAL FINANCE</div>
+      <h1>A little help when<br><span>you need it most.</span></h1>
+      <p>Estimate your repayments and submit a loan application in a few simple steps.</p>
+    </section>
+
+    <div class="progress" aria-label="Application progress">
+      <div class="step active"><span>1</span><small>Calculator</small></div><i></i>
+      <div class="step"><span>2</span><small>Application</small></div><i></i>
+      <div class="step"><span>3</span><small>Verification</small></div>
+    </div>
+
+    <section class="panel" id="calculator">
+      <div class="panel-heading"><div><span class="kicker">STEP 1 OF 3</span><h2>Loan calculator</h2></div><span class="icon-circle">↗</span></div>
+      <label for="amount">How much would you like to borrow?</label>
+      <div class="amount-line"><span>ZMW</span><strong id="amountValue">5,000</strong></div>
+      <input id="amount" type="range" min="1000" max="10000" step="500" value="5000" aria-label="Loan amount">
+      <div class="range-labels"><span>ZMW 1,000</span><span>ZMW 10,000</span></div>
+      <label class="field-label" for="term">Choose repayment period</label>
+      <div class="term-grid">
+        <button class="term" data-term="6" type="button">6 <small>months</small></button>
+        <button class="term selected" data-term="12" type="button">12 <small>months</small></button>
+        <button class="term" data-term="24" type="button">24 <small>months</small></button>
+        <button class="term" data-term="48" type="button">48 <small>months</small></button>
+      </div>
+      <div class="repayment">
+        <div><span>Estimated monthly payment</span><strong id="monthly">ZMW 416.67</strong></div>
+        <div class="repay-note">Illustrative estimate <span>ⓘ</span></div>
+        <div class="repay-breakdown"><span>Loan amount</span><b id="principal">ZMW 5,000</b></div>
+        <div class="repay-breakdown"><span>Term</span><b id="termSummary">12 months</b></div>
+        <p class="fineprint">Estimate excludes interest, fees and insurance. Final terms depend on lender assessment and an approved offer.</p>
+      </div>
+      <button class="primary" id="applyNow">APPLY NOW <span>→</span></button>
+      <p class="trust"><span>✓</span> Your application details are handled securely.</p>
+    </section>
+
+    <section class="panel hidden" id="application">
+      <div class="panel-heading"><div><span class="kicker">STEP 2 OF 3</span><h2>Your application</h2><p class="muted">Enter your details as shown on your official documents.</p></div></div>
+      <form id="applicationForm">
+        <label for="fullName">Full name</label><input id="fullName" name="fullName" autocomplete="name" placeholder="Enter your full name" required minlength="2">
+        <label for="phone">Phone number</label><input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="0XXXXXXXXX" pattern="0[0-9]{9}" required>
+        <p class="hint">Use your Zambian mobile number, for example 0971234567.</p>
+        <label for="nationalId">National ID</label><input id="nationalId" name="nationalId" placeholder="Enter your National ID" required>
+        <div class="two-col">
+          <div><label for="formAmount">Loan amount (ZMW)</label><input id="formAmount" type="number" min="1000" max="10000" step="500" required></div>
+          <div><label for="employment">Employment status</label><select id="employment" required><option value="">Choose status</option><option>Self-employed</option><option>Employed</option><option>Student</option></select></div>
+        </div>
+        <label for="income">Monthly net income (ZMW)</label><input id="income" type="number" min="0" step="1" placeholder="e.g. 4500" required>
+        <label for="formTerm">Repayment period</label><select id="formTerm" required><option value="6">6 months</option><option value="12">12 months</option><option value="24">24 months</option><option value="48">48 months</option></select>
+        <label class="checkrow"><input type="checkbox" id="acceptedTerms" required><span>I confirm that the information provided is true and I agree to the loan terms and conditions.</span></label>
+        <p class="fineprint">Only continue if you understand the lender's fees, interest rate, eligibility criteria and privacy policy. This website is not an official MTN payment gateway.</p>
+        <button class="primary" type="submit">SUBMIT APPLICATION <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="panel hidden" id="verification">
+      <div class="success-icon">✓</div>
+      <span class="kicker">STEP 3 OF 3</span>
+      <h2>Application received</h2>
+      <p class="muted">Your application reference is:</p>
+      <div class="reference" id="reference">MA-XXXXXXXX</div>
+      <p id="resultMessage">Your details have been received. This portal does not approve or disburse loans automatically.</p>
+      <div class="notice"><strong>Payment safety</strong><p>Never enter or share your MoMo PIN or a payment-gateway OTP on a loan application website. If a payment or authorization is required, continue only through the official MTN MoMo app or an approved, provider-hosted flow.</p></div>
+      <button class="secondary" id="backHome">BACK TO CALCULATOR</button>
+    </section>
+
+    <div id="notice" class="notice-toast hidden" role="status"></div>
+    <footer><span>© 2026 MoMo Advance</span><span>Privacy · Terms · Help</span></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
